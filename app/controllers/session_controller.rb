@@ -19,11 +19,15 @@ class SessionController < ApplicationController
             render json: { error: "Invalid Password and/or Username" },  status: :unauthorized
         end
         puts session[:current_user]
+        puts session
     end 
 
     def logout
+        puts session[:current_user]
+        puts session
         session.delete :current_user
         render status: :no_content
+        puts session
     end 
 
 
