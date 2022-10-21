@@ -13,10 +13,15 @@ function App() {
   const [user, setUser] = useState(null)
 
   useEffect(() => {
-    fetch("http://localhost:3000/me").then((response) => {
+    fetch("http://localhost:3000/me")
+    .then((response) => {
+      console.log(response.json())
       if (response.ok) {
-        response.json().then((user) => setUser(user), setIsAuthenticated(true));
-      }
+        response.json()
+        .then((user) => {
+        setUser(user)
+        setIsAuthenticated(true)
+        })}else {console.log("not working")}
     });
   }, []);
 

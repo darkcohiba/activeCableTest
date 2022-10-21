@@ -3,6 +3,11 @@ class ApplicationController < ActionController::API
     rescue_from ActiveRecord::RecordNotFound, with: :render_not_found_response
     
     include ActionController::Cookies
+
+    def hello_world
+        session[:count] = (session[:count] || 0) + 1
+        render json: { count: session[:count] }
+    end
   
     # before_action :authorize_user
   

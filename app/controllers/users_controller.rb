@@ -16,6 +16,7 @@ class UsersController < ApplicationController
   # GET checking users logged in
   def showme
     puts "help"
+    puts session
     puts session[:current_user] 
     user = User.find_by(id: session[:current_user])
     puts session[:current_user] 
